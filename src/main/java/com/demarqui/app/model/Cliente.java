@@ -34,11 +34,11 @@ public class Cliente {
 
 	@Column(length = 18)
 	@CPF(message = "CPF inválido")
-	private String cpf;
+	private int cpf;
 	
 	@Column(length = 14)
 	@Size(max = 14, message = "Deve ter no máximo {max} caracteres.")
-	private String telefone;
+	private int telefone;
 
 	@Column(length = 80)
 	@Size(max = 80, message = "Deve ter no máximo {max} caracteres.")
