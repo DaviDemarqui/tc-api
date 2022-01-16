@@ -16,7 +16,6 @@ public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false, updatable = false)
     private Long id;
 
     @Column(length = 35, nullable = false)
