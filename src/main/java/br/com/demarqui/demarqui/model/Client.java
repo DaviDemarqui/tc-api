@@ -15,22 +15,24 @@ import java.util.List;
 public class Client {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true, updatable = false)
     private Long id;
 
-    @Column(length = 35, nullable = false)
+    @Column(length = 35, nullable = false, name = "clientName")
     private String name;
 
-    @Column(length = 35)
+    @Column(length = 35, nullable = false, name = "clientEmail")
     private String email;
 
-    @Column(length = 13)
+    @Column(length = 13, nullable = false, name = "clientPhone")
     private String phone;
 
-    @CPF
+    @Column(length = 14, nullable = false, name = "clientCpf", unique = true)
     private String cpf;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "equipament_id")
     private List<Equipamento> equipamentoDoClient;
+
 }
